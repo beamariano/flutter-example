@@ -1,14 +1,12 @@
+import 'package:first_app/change_image.dart';
 import 'package:flutter/material.dart';
 import 'package:first_app/styled_text.dart';
+import 'package:first_app/change_image.dart';
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer(this.colorArray, {super.key});
+  GradientContainer(this.colorArray, {super.key});
 
   final List<Color> colorArray;
-
-  void rollDice() {
-    // return?
-  }
 
   @override
   Widget build(context) {
@@ -20,14 +18,6 @@ class GradientContainer extends StatelessWidget {
             end: Alignment.topCenter,
           ),
         ),
-        child: Center(
-          child: Column(
-            children: [
-              Image.asset('assets/images/landscape.jpeg', width: 320),
-              TextButton(
-                  onPressed: rollDice, child: const StyledText('Kamusta?')),
-            ],
-          ),
-        ));
+        child: Center(child: ChangeImage()));
   }
 }
