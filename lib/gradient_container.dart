@@ -2,24 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:first_app/styled_text.dart';
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer(this.colorArray, {super.key});
+
+  final List<Color> colorArray;
+
+  void rollDice() {
+    // return?
+  }
 
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 175, 0, 58),
-            Colors.black26,
-          ],
-          begin: Alignment.bottomCenter,
-          end: Alignment.topCenter,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: colorArray,
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
         ),
-      ),
-      child: const Center(
-        child: StyledText('Kamusta?'),
-      ),
-    );
+        child: Center(
+          child: Column(
+            children: [
+              Image.asset('assets/images/landscape.jpeg', width: 320),
+              TextButton(
+                  onPressed: rollDice, child: const StyledText('Kamusta?')),
+            ],
+          ),
+        ));
   }
 }
