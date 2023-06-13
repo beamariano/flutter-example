@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'dart:math';
+
+final randomizer = Random(); // global
+
 class ChangeImage extends StatefulWidget {
   const ChangeImage({super.key});
 
@@ -8,11 +12,11 @@ class ChangeImage extends StatefulWidget {
 }
 
 class _ChangeImageState extends State<ChangeImage> {
-  var activeImage = 'assets/images/landscape.jpeg';
+  var currentNum = 1;
 
   void rollDice() {
     setState(() {
-      activeImage = 'assets/images/image.jpeg';
+      currentNum = randomizer.nextInt(4) + 1;
     });
   }
 
@@ -21,7 +25,7 @@ class _ChangeImageState extends State<ChangeImage> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(activeImage, width: 320),
+        Image.asset('assets/images/image-$currentNum.jpeg', width: 320),
         SizedBox(height: 20),
         TextButton(
             onPressed: rollDice,
