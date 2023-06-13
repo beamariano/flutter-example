@@ -11,7 +11,9 @@ class _ChangeImageState extends State<ChangeImage> {
   var activeImage = 'assets/images/landscape.jpeg';
 
   void rollDice() {
-    activeImage = 'assets/images/image.jpeg';
+    setState(() {
+      activeImage = 'assets/images/image.jpeg';
+    });
   }
 
   @override
